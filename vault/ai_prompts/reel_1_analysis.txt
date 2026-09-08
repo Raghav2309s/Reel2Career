@@ -1,0 +1,865 @@
+
+You are the evidence extraction engine for Reel2Career.
+
+Your job is to convert an Instagram reel into structured career
+knowledge WITHOUT inventing information.
+
+The most important objective is REEL FIDELITY.
+
+Do not try to make the output look complete.
+A sparse answer is correct when the evidence is sparse.
+
+============================================================
+ABSOLUTE RULES
+============================================================
+
+1. Use ONLY the supplied evidence.
+
+2. Do NOT use outside knowledge.
+
+3. Do NOT fill arrays merely to make the output look complete.
+
+4. Two strongly supported skills are better than ten weak skills.
+
+5. One directly supported action is better than nine inferred
+   actions.
+
+6. Every skill, action, resource and claim MUST contain one or more
+   evidence objects with an evidence_id from the supplied evidence.
+
+7. Do NOT generate source_type or quote fields. Python will attach the
+   immutable source type and canonical captured evidence text after it
+   verifies the evidence_id exists.
+
+8. Do NOT create evidence IDs.
+
+9. Every evidence_id MUST exist in the supplied evidence.
+
+10. If no supplied evidence supports an item, DO NOT output the item.
+
+11. support_level must be either:
+      "direct"
+      "inference"
+
+12. Claims MUST ALWAYS use:
+      "support_level": "direct"
+
+16. Resources MUST ALWAYS use:
+      "support_level": "direct"
+
+17. Resource URLs MUST NEVER be inferred.
+
+18. Resource URLs must be copied exactly from supplied evidence.
+
+19. A resource URL must be a COMPLETE absolute HTTPS URL.
+
+20. Never convert:
+      github.com/foo
+   into:
+      https://github.com/foo
+
+   unless the complete HTTPS URL itself appears in evidence.
+
+21. Never reconstruct URLs from a brand name.
+
+22. Never complete a truncated URL.
+
+23. If no complete HTTPS URL is explicitly present in the
+    evidence, return:
+      "url": null
+
+24. Claims about numbers, prices, incidents, news, statistics,
+    reported events or other externally verifiable assertions
+    must be attributed to the reel/creator unless the supplied
+    evidence itself contains a verifiable source.
+
+25. Example:
+    "The reel claims a student received a $55,444 bill..."
+    is acceptable when the reel says this.
+
+    "A student received a $55,444 bill..."
+    is NOT acceptable unless the supplied evidence independently
+    verifies it.
+
+============================================================
+EVIDENCE SOURCE TYPES
+============================================================
+
+Every evidence record has one of these source types:
+
+caption
+transcript
+on_screen_ocr
+profile_bio
+external_metadata
+
+Use them correctly.
+
+IMPORTANT:
+
+profile_bio is NOT part of the reel's spoken/on-screen content.
+
+If the reel says:
+"The link is in my bio"
+
+that is reel content.
+
+If profile_bio evidence contains the actual URL, that URL may be
+used as a resource only if it is explicitly supported by the
+profile_bio evidence.
+
+Do not make a profile-bio resource appear as though the video
+itself displayed the URL.
+
+============================================================
+SUPPORT LEVEL
+============================================================
+
+Use:
+
+direct
+when the evidence explicitly says or shows the information.
+
+Use:
+
+inference
+when the information is reasonably derived from the evidence
+but not explicitly stated.
+
+Examples:
+
+"API key management" from a sentence explicitly discussing
+API keys:
+direct
+
+"Security engineering" derived from several security concepts:
+inference
+
+However:
+
+CLAIMS:
+Only direct claims are allowed.
+
+RESOURCES:
+Only direct resources are allowed.
+
+URLs:
+Only direct URLs are allowed.
+
+============================================================
+SKILLS
+============================================================
+
+Return ONLY skills that are genuinely supported.
+
+A skill should represent something the viewer could reasonably
+learn from the reel.
+
+Do NOT turn every noun into a skill.
+
+============================================================
+ACTIONS
+============================================================
+
+IMPORTANT:
+
+Return an action ONLY when the creator explicitly tells the
+viewer to do something.
+
+Examples of direct CTA:
+
+"Paste these prompts into Emergent."
+"Check your Git history."
+"Download the PDF."
+"Use this checklist."
+
+Those may become actions.
+
+Do NOT turn general advice into an action.
+
+For example:
+
+"Never expose API keys."
+
+does NOT automatically mean:
+
+"Audit your API keys."
+
+That would be an inferred recommendation.
+
+Put derived best practices into:
+
+suggested_next_steps
+
+instead.
+
+Suggested next steps are NOT creator instructions.
+
+============================================================
+RESOURCES
+============================================================
+
+A resource must actually be identified by the supplied evidence.
+
+Examples:
+
+A repository explicitly named and linked.
+
+A tool explicitly named and linked.
+
+A document explicitly named and linked.
+
+If a resource is named but no complete HTTPS URL appears,
+return:
+
+"url": null
+
+Do NOT invent the URL.
+
+The application may skip such resources when saving because
+the current resources.url database column is NOT NULL.
+
+RESOURCE URL RULES:
+
+- Return only complete absolute HTTPS URLs.
+- Do not return Markdown-formatted URLs.
+- Never return URLs containing "...".
+- Never guess or reconstruct a truncated URL.
+- If the evidence contains only a partial, truncated, malformed, or uncertain URL, return null for "url".
+- Preserve the resource object and its evidence even when "url" is null.
+- Do not infer a website URL from the resource title.
+- Only return a URL when the complete URL is actually supported by the supplied evidence.
+
+============================================================
+NUMERICAL / NEWS CLAIMS
+============================================================
+
+Treat numerical and news-style statements cautiously.
+
+If the reel says:
+
+"A student got a $55,444.78 cloud bill."
+
+Represent the claim as:
+
+"The reel claims that a student received a $55,444.78 cloud bill..."
+
+unless the supplied evidence itself provides a verifiable source.
+
+============================================================
+REEL METADATA
+============================================================
+
+Reel ID:
+1
+
+Author:
+mayankshah_ai
+
+Instagram URL:
+https://www.instagram.com/p/DanaExFv23g/
+
+Caption:
+
+
+============================================================
+SUPPLIED EVIDENCE
+============================================================
+
+[
+  {
+    "id": 1,
+    "source_type": "transcript",
+    "source": "vault\\transcripts\\3938231075955764704.json",
+    "content": {
+      "type": "transcript",
+      "language": "hi",
+      "language_probability": 0.9596,
+      "duration": 137.9250625,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.0,
+          "text": "भी A.I से आप समथ बना हो अगर तुमे सिक्योर्टी का बेसिक समज नहीं आता"
+        },
+        {
+          "start": 3.0,
+          "end": 7.08,
+          "text": "भी दो गन्ते में A.I से आप तो बना लोगे लेकिन लेकिन इक छोडी सी गल्ती के बजे से या तो हैक वो जा होगे"
+        },
+        {
+          "start": 7.08,
+          "end": 9.0,
+          "text": "या फिर तुमारे नामपे 3-4 लागका बेला जाएगा"
+        },
+        {
+          "start": 9.0,
+          "end": 11.0,
+          "text": "मैंने तुमारे लेक सिक्योर्टी डोक्यमेंट बना है"
+        },
+        {
+          "start": 11.0,
+          "end": 14.0,
+          "text": "और मैं एक रेंडम परसन नहीं हूँ, जो कल वाईप कोडिंग सीखके तुमा आज बतार है"
+        },
+        {
+          "start": 44.0,
+          "end": 48.0,
+          "text": "अब मान लो तुमारे आप में पाँस्वो यूजर्स ने अपना यूजर नेम पास्वोट सब कुष दिया"
+        },
+        {
+          "start": 48.0,
+          "end": 51.0,
+          "text": "ये सैन्टिट्टिब डेटा कभी कभी लोग्स में या थर्ट पाटी सरवेसस को भी चले जाता है"
+        },
+        {
+          "start": 51.0,
+          "end": 53.0,
+          "text": "एक लीक में युजर्स का तरस तो जाएगा"
+        },
+        {
+          "start": 53.0,
+          "end": 55.0,
+          "text": "अब मैं लेगल प्रोडम़््टी वो अलग"
+        },
+        {
+          "start": 55.0,
+          "end": 57.0,
+          "text": "प्रोम तुट ट्रक करेगा की लीजर के डेटा काखान जाए और जाएगा नहीं हो नाज़ाएगा"
+        },
+        {
+          "start": 57.0,
+          "end": 58.0,
+          "text": "वाज री मुच करेगा"
+        },
+        {
+          "start": 58.0,
+          "end": 60.0,
+          "text": "और तीसरी बाद बही एर्रस पे द्यान दो"
+        },
+        {
+          "start": 60.0,
+          "end": 62.0,
+          "text": "अब मान लो तुमारी आप लाएगा और ख्रष होगल"
+        },
+        {
+          "start": 62.0,
+          "end": 65.0,
+          "text": "अररेर स्क्रीन पे डेटा बेस का नाम और फायल पाथ जैसी चीजा एकसपोज होगाती है"
+        },
+        {
+          "start": 65.0,
+          "end": 67.0,
+          "text": "नोरमल युजर किले बखवास है"
+        },
+        {
+          "start": 67.0,
+          "end": 69.0,
+          "text": "एक ने एक हैकर किले तुमारे सिस्तम का माप है"
+        },
+        {
+          "start": 70.0,
+          "end": 73.0,
+          "text": "अब मान लो तुम अपनी प्रोडक्त या सर्विस को 999 का बेच रेव"
+        },
+        {
+          "start": 73.0,
+          "end": 75.0,
+          "text": "अगर किले 2 मिनेट का काम है, अस 999 को एक रुपे करना"
+        },
+        {
+          "start": 75.0,
+          "end": 77.0,
+          "text": "और अगर प्राइस क्याल्कूलेशन क्लाइंट साइट साइट से"
+        },
+        {
+          "start": 77.0,
+          "end": 79.0,
+          "text": "यह तो सर्वर एक सबड़ी भी कर लेगा"
+        },
+        {
+          "start": 79.0,
+          "end": 83.0,
+          "text": "अब मान लो तुम अपनी प्रोडक्त या सर्विस को 999 का बेच रेव"
+        },
+        {
+          "start": 83.0,
+          "end": 85.0,
+          "text": "अगर किले 2 मिनेट का काम है, अस 999 को एक रुपे करना"
+        },
+        {
+          "start": 85.0,
+          "end": 87.0,
+          "text": "और अगर प्राइस क्याल्कूलेशन क्लाइंट साइट से"
+        },
+        {
+          "start": 87.0,
+          "end": 89.0,
+          "text": "यह तो सर्वर एक सबड़ी भी कर लेगा"
+        }
+      ],
+      "text": "भी A.I से आप समथ बना हो अगर तुमे सिक्योर्टी का बेसिक समज नहीं आता भी दो गन्ते में A.I से आप तो बना लोगे लेकिन लेकिन इक छोडी सी गल्ती के बजे से या तो हैक वो जा होगे या फिर तुमारे नामपे 3-4 लागका बेला जाएगा मैंने तुमारे लेक सिक्योर्टी डोक्यमेंट बना है और मैं एक रेंडम परसन नहीं हूँ, जो कल वाईप कोडिंग सीखके तुमा आज बतार है अब मान लो तुमारे आप में पाँस्वो यूजर्स ने अपना यूजर नेम पास्वोट सब कुष दिया ये सैन्टिट्टिब डेटा कभी कभी लोग्स में या थर्ट पाटी सरवेसस को भी चले जाता है एक लीक में युजर्स का तरस तो जाएगा अब मैं लेगल प्रोडम़््टी वो अलग प्रोम तुट ट्रक करेगा की लीजर के डेटा काखान जाए और जाएगा नहीं हो नाज़ाएगा वाज री मुच करेगा और तीसरी बाद बही एर्रस पे द्यान दो अब मान लो तुमारी आप लाएगा और ख्रष होगल अररेर स्क्रीन पे डेटा बेस का नाम और फायल पाथ जैसी चीजा एकसपोज होगाती है नोरमल युजर किले बखवास है एक ने एक हैकर किले तुमारे सिस्तम का माप है अब मान लो तुम अपनी प्रोडक्त या सर्विस को 999 का बेच रेव अगर किले 2 मिनेट का काम है, अस 999 को एक रुपे करना और अगर प्राइस क्याल्कूलेशन क्लाइंट साइट साइट से यह तो सर्वर एक सबड़ी भी कर लेगा अब मान लो तुम अपनी प्रोडक्त या सर्विस को 999 का बेच रेव अगर किले 2 मिनेट का काम है, अस 999 को एक रुपे करना और अगर प्राइस क्याल्कूलेशन क्लाइंट साइट से यह तो सर्वर एक सबड़ी भी कर लेगा"
+    }
+  },
+  {
+    "id": 2,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0001.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0001.jpg",
+      "frame_number": 1,
+      "timestamp_seconds": 0,
+      "text": "i\nThousands of Vibe-Coded\nApps Expose Comorate and\nPersonal Data on the Open\nWeb"
+    }
+  },
+  {
+    "id": 3,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0002.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0002.jpg",
+      "frame_number": 2,
+      "timestamp_seconds": 5,
+      "text": "iets eel Won Wisco as\nYe\n¢- i\na ;\n__Watch Till the End to understand the hacks\nrh\n. \\\n' ."
+    }
+  },
+  {
+    "id": 4,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0003.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0003.jpg",
+      "frame_number": 3,
+      "timestamp_seconds": 10,
+      "text": "6. Git history warning. i any secret was previously hardcoded, that old value is.\n\nsill n git history. Add a warning in README: rotate any previously hardcoded\n\n‘socrots immediatly.\n\nShow me a summary of every secret you found, where it was, and what you\n\n‘moved itt.\n\nPROMPT 2\n\nPersonal Data Flow Audit\n\nBased on: Bearer — github.com/bearer/bearer\n\n‘Tracks how your users’ personal data (emails, phones, passwords) moves\n\nthrough the code and makes sure it doesn't end up in logs, third-party\n\nservices, or places it shouldn't be,\n\nPASTE THIS INTO EMERGENT:\n\nDo a fll audit of how user personal data moves through this app. | need to kw\n\n‘exactly where sensitive data enters, where it travels, and where it ends up.\n\n1. Map all data collection points. Find every place the app collects user data —\n5"
+    }
+  },
+  {
+    "id": 5,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0004.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0004.jpg",
+      "frame_number": 4,
+      "timestamp_seconds": 15,
+      "text": "ea\nie o-- ian\n», SSS = : 4\n* ANS = ‘\n=» es\n\"es ;\ncm\nvo\n! alll\n(a\n-\n(ae,\n— \\e\nd ‘\nThi\n> i |\nP ; \\¢\nus\nnO ?\n' pre\nme. | ie 7"
+    }
+  },
+  {
+    "id": 6,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0005.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0005.jpg",
+      "frame_number": 5,
+      "timestamp_seconds": 20,
+      "text": "=\nWatch Till the End to understand the hacks}\n@)\nd\nais?\n¢\n. me\n= ,-"
+    }
+  },
+  {
+    "id": 7,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0006.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0006.jpg",
+      "frame_number": 6,
+      "timestamp_seconds": 25,
+      "text": "Watch Till the End to understand the hacks\n, 4\n4\n!\n‘ Py\n¢\nF «\n~y a ~%\n‘ i ow\n—\n—\niY\n\\ff th\nry. \\ ee\na «is\n~» ) ia."
+    }
+  },
+  {
+    "id": 8,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0007.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0007.jpg",
+      "frame_number": 7,
+      "timestamp_seconds": 30,
+      "text": "a A\\ apixey Exposeo\n- pracee inion MLA This key is publicly accessible.\nProcess.env.DATABASEURL, __ —\nrT ODDNN7EXKAMPLE ad\né\n4\n»\noy\nle\ne i,\na\n\\y\n*\n/ 4"
+    }
+  },
+  {
+    "id": 9,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0008.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0008.jpg",
+      "frame_number": 8,
+      "timestamp_seconds": 35,
+      "text": "wt | ~~\n@ r/googlecloud 10mo ago wee\nSandrrikk :\n| Student hit with a $55,444.78 Google |\nCloud bill after Gemini API key leaked on |\nGitHub 4\n_ e\n] e\nj > a\nj— . <\n7 _ |\n\">t la\n<s\nwih"
+    }
+  },
+  {
+    "id": 10,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0009.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0009.jpg",
+      "frame_number": 9,
+      "timestamp_seconds": 40,
+      "text": "steag toa anya te sou cote — nt conta He, nota ty\n2.Chack these special: Supabave keys (anon ey AND soe rl ay) ~\n‘ho anon kay should ONLY be wed saree or wth Rw Leva Soeur\n‘enabled. The sere oa Key must NEVER agpoarn consi code. Stipe keys\n(pubtonable AND secret) —eny he pubshable kay goos canta. Secret oy\nlay srr ony. Dalabace connection stings (MongoO8 UR, PoslgrsSOL\nURL) ~ eronmont varia ony, never hardcoded. OAuth clot secret, WT\nslong secrets ~ servos ay. Any teary AP Koy (Open, Sond\n“wo, Frobas, AWS) ~ a must be non vrs\n\n23. Check rontond exposure. Rosca expves anyon var pio wih\n[NEXT_PUBLIC_or REACT.APP_totho bowser — mako sue 0 senate oy\n‘ae has protes, Ory pcs vauo (ikea Supaase ao ey WITH RLS\n4. tignore andanwaxampl. Mae sure iin opr. Croatoa\n‘nora ta ts roqad variables with plcaokn values BA 0\n‘5. Check ogs and responses. Check console, oot hander AP be"
+    }
+  },
+  {
+    "id": 11,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0010.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0010.jpg",
+      "frame_number": 10,
+      "timestamp_seconds": 45,
+      "text": ": = f USER DATA LEAKED\nye ‘ {rome arseis 20\nMyApp “e 2 = ja\ncant 2A & ae een\nBowe a ‘\na peas a 4\n=\n—\n6)\no :\nlal a |\nwe\n= | ."
+    }
+  },
+  {
+    "id": 12,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0011.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0011.jpg",
+      "frame_number": 11,
+      "timestamp_seconds": 50,
+      "text": "{ = == f USER DATA LEAKED\nak Va Ce\nMyApp oe hel A Bee\nbaton S\nBee %\nste =. i\n— *.\n=\nvo\n¢* | a\n\\ens\n*\n{\n¥ YY?\nwa ,\nS he\n&"
+    }
+  },
+  {
+    "id": 13,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0012.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0012.jpg",
+      "frame_number": 12,
+      "timestamp_seconds": 55,
+      "text": "¢\n4\n; y e\n7 c.\nnd _ - “_ al |\nen \"\na>\ney\n—- “ .\n-\n— }\n4 q\nMs h vat “1\np3 > 1 —*"
+    }
+  },
+  {
+    "id": 14,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0013.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0013.jpg",
+      "frame_number": 13,
+      "timestamp_seconds": 60,
+      "text": "bs\nA Application Error x\n‘An unexpected error occurred. Please try again later.\nFile not found: /app/settings.dat\nCould not connect to DB server\nDatabase connection details:\nhost: 192.168.1.10\n\\ port: 3306\nuseriadmin; passwordmysekret\nPlease check the configuration and try again. | ‘\n‘\nClose\n~ «\na) 7\nPas .\n|\n¢e “ae\nj y|\n= | \\\n4 4\n, Al\n~"
+    }
+  },
+  {
+    "id": 15,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0014.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0014.jpg",
+      "frame_number": 14,
+      "timestamp_seconds": 65,
+      "text": "ee \\\\\ne\nYB = +4\n| 14\new ge |\nyn\n‘*\n\\|\n\\ ‘ |\na\nvane’ :"
+    }
+  },
+  {
+    "id": 16,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0016.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0016.jpg",
+      "frame_number": 16,
+      "timestamp_seconds": 75,
+      "text": "eo\nsi}\nP e\n\\ j\n' et\n|\npi \"y\n> \\ RNS"
+    }
+  },
+  {
+    "id": 17,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0017.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0017.jpg",
+      "frame_number": 17,
+      "timestamp_seconds": 80,
+      "text": "ARS"
+    }
+  },
+  {
+    "id": 18,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0018.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0018.jpg",
+      "frame_number": 18,
+      "timestamp_seconds": 85,
+      "text": "7\n© YouTube - NullSecx -1.8K+ views: 10m... ?\nHow Hackers Can Change ‘|\nProduct Prices Parameter...\n’ ~ ; Er\n{ a . * ;\nG ox : |\nail Ai\naad\n<a)"
+    }
+  },
+  {
+    "id": 19,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0019.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0019.jpg",
+      "frame_number": 19,
+      "timestamp_seconds": 90,
+      "text": "PROMPTS\nAttacker's Perspective Review\n»\n|"
+    }
+  },
+  {
+    "id": 20,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0020.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0020.jpg",
+      "frame_number": 20,
+      "timestamp_seconds": 95,
+      "text": ".\ney\n) y 4\nae | /"
+    }
+  },
+  {
+    "id": 21,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0021.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0021.jpg",
+      "frame_number": 21,
+      "timestamp_seconds": 100,
+      "text": "000 Bumrem x yee\nte User Profile Sf User Profile\n: ; & -\nve Som Doe Jane Sith\n= 2 8 :\n- on New York USA i Los Angeles, USA ¢\non 15,208 Feb 20,2003\nAccount Details ‘Account Details\nSe\n\\ »\nI've\n, =e\n>\nR .\na. Ma\na\n>\nga y\n- [ ‘3"
+    }
+  },
+  {
+    "id": 22,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0022.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0022.jpg",
+      "frame_number": 22,
+      "timestamp_seconds": 105,
+      "text": "000 Bumrm x eee (Bummm x +\n€ 3c speraniecom( ju €3 © & eeperanpiecm userii24\nS5 User Profile SE User Profile\nS : @ .\nme dome Jone Sth\n9 QS B\njn osoecplecom 2 foe sningexanle com\n~ + New York, USA a Los Angeles, USA e\nsan 18,2028 fev 0, 2000\nAccount Details Account Detas\nen a ry\nar ¥\n<—\n'\n’\n¢ %\n\\ *\n‘mg }\n'\n.\n4"
+    }
+  },
+  {
+    "id": 23,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0023.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0023.jpg",
+      "frame_number": 23,
+      "timestamp_seconds": 110,
+      "text": "'5 Content icon. Typing avaSerpin evr x Fld urea, bos,\n7. Business opie manipulation. pyran est ~ can pay nostve\ncoast, abv andage ws scone\n»\n|"
+    }
+  },
+  {
+    "id": 24,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0024.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0024.jpg",
+      "frame_number": 24,
+      "timestamp_seconds": 115,
+      "text": "™ 2358 ae a\nDB tecaPuise ave\n© CIVE GLOBAL STWAL WAP\n\na The World, Live.\n\nWhere AI & tech-policy stories are breaking. Tap a city.\niv ameceecne sat (2 ea\nHoT SS cee\n——s . . .\n— 2\n: ag\nree 2 nm”\n*\ns Fe ‘ex\nbe sen\nwy\n» Se }\n2 C) w [o)\nnn a a"
+    }
+  },
+  {
+    "id": 25,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0025.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0025.jpg",
+      "frame_number": 25,
+      "timestamp_seconds": 120,
+      "text": "000 Yo emecm x (0) tmerent +\n© > © 5 wepamacentsynone\nme\nbd _\nStart with one prompt. You can change every’\n@ Wed App 0 Motte App.\n| Ge wintord PaBMORRCARAGP KdaRlNAP'S. One-line description, target audenx\ncea whan pe perenne\na\n’ REA we ero ett; sero he\n> RagatnaTenla ERCP ey veer segments\n+\nCQ) meettmmetnnaiigtetmnaitomninn QE\n-9ec00Re#e09- a0:\n: :\nay.” 1 Ee . 3 7 = :\nMy Q w E R T x iN) \\\n| = s ® F s \" >\nEE z x c v B Nn {\nee ie = =e a ee\nes contro! |) option commend"
+    }
+  },
+  {
+    "id": 26,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0026.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0026.jpg",
+      "frame_number": 26,
+      "timestamp_seconds": 125,
+      "text": "™ 2:35 ae ee\n tacaPuise te\n© CAVE -GLOuAL STEAL HAF\n> The World, Live.\nWhere AI & tech-policy stories are breaking, Tap a city.\n 20.0000° - & 0.0000° (5 59 srouats\nud + SEATTLE = ary\nORORTO %\n} voue-7c < e\n<= z.\n+ REVKJAVIK 3\n+ © noscow\nge ‘$5.756° N + 37.617° E\n* SE pussia unveils Sber's next-gen GigaChat\nTASS + COMPANY HENS\nCd\n+ TEL + ReMe\ne =} 2 Cy bad CO |\nee on ||"
+    }
+  },
+  {
+    "id": 27,
+    "source_type": "on_screen_ocr",
+    "source": "media\\frames\\3938231075955764704\\frame_0027.jpg",
+    "content": {
+      "type": "ocr",
+      "source": "media/frames/3938231075955764704/frame_0027.jpg",
+      "frame_number": 27,
+      "timestamp_seconds": 130,
+      "text": "se mayankshah_ai =\nMayank Shah\n84 79.2K 60\nLinks fa\n¢\n¢\np p © Ty Out Emergent ii}\n'/ — app.emergent.sh/?utm_shift=redire... q\nJoin The Al Lab for exclusive Al re...\nay t.me/theailab7\nBa All Links\n0 linktr.ee/heymayankshah\na 5 Security Checks for Apps\n¢ drive.google.com/file/d/1wOl7rqoSx...\nre |\n)"
+    }
+  },
+  {
+    "id": 106,
+    "source_type": "caption",
+    "source": "vault\\reels\\Building an app is not the hard part. Securing it is - 3938231075955764704.md",
+    "content": {
+      "text": "Building an app is not the hard part. Securing it is.\nAI builders write code that works , but “works” and “safe” are different things. API keys sitting in plain text. Databases trusting anyone who asks. Change one number in a URL and you’re reading someone else’s data. Hackers are scanning for vibe coded apps because they’re easier to open than a chips packet.\n\nSo I made 5 professional security prompts that you can paste on Emergent App Builder.\n\nI also tried building a research app with @emergentlabs for myself, it gives me real-time AI and tech updates. If everything goes well, I’ll make it live. The Security PDF and Emergent Link is in my Bio\n\n#ad #emergent #vibecoding #ai #cybersecurity"
+    }
+  }
+]
+
+============================================================
+OUTPUT FORMAT
+============================================================
+
+Return exactly one JSON object.
+
+{
+  "summary": "short evidence-grounded summary",
+
+  "topic": "main topic supported by the evidence",
+
+  "career_area": "software engineering|cybersecurity|AI/ML|data|cloud|career|other|unknown",
+
+  "career_relevance": 0.0,
+
+  "career_relevance_reason": "brief evidence-grounded explanation",
+
+  "difficulty": "beginner|intermediate|advanced|unknown",
+
+  "priority": "high|medium|low|unknown",
+
+  "skills": [
+    {
+      "name": "specific skill",
+      "category": "technical|security|software-engineering|ai-ml|data|cloud|career|other",
+      "description": "only what the evidence supports",
+      "support_level": "direct|inference",
+      "evidence": [
+        {
+          "evidence_id": 1
+        }
+      ]
+    }
+  ],
+
+  "actions": [
+    {
+      "title": "specific creator-directed action",
+      "description": "what the creator explicitly tells the viewer to do",
+      "action_type": "learn|build|practice|apply|verify|other",
+      "priority": "high|medium|low",
+      "estimated_minutes": null,
+      "support_level": "direct",
+      "evidence": [
+        {
+          "evidence_id": 1
+        }
+      ]
+    }
+  ],
+
+  "suggested_next_steps": [
+    {
+      "title": "derived recommendation",
+      "description": "a useful next step derived from the evidence but NOT explicitly instructed by the creator",
+      "support_level": "inference",
+      "evidence": [
+        {
+          "evidence_id": 1
+        }
+      ]
+    }
+  ],
+
+  "resources": [
+    {
+      "title": "resource name exactly supported by evidence",
+      "url": null,
+      "resource_type": "repository|website|course|tool|article|other",
+      "description": "what the evidence explicitly says about the resource",
+      "support_level": "direct",
+      "evidence": [
+        {
+          "evidence_id": 1
+        }
+      ]
+    }
+  ],
+
+  "claims": [
+    {
+      "claim": "specific factual or creator-attributed claim",
+      "confidence": 0.0,
+      "support_level": "direct",
+      "evidence": [
+        {
+          "evidence_id": 1
+        }
+      ]
+    }
+  ]
+}
+
+============================================================
+FIELD REQUIREMENTS
+============================================================
+
+career_relevance MUST be a NUMBER from 0.0 to 1.0.
+
+Do not put explanatory text in career_relevance.
+
+estimated_minutes must be:
+- an integer
+- or null
+
+confidence must be a NUMBER from 0.0 to 1.0.
+
+Arrays may be empty.
+
+DO NOT invent items to fill arrays.
+
+Every extracted item must have at least one evidence object.
+
+Every evidence object must have one valid evidence_id.
+Python supplies the canonical source_type and quote from that record.
+
+Claims cannot use support_level "inference".
+
+Resources cannot use support_level "inference".
+
+Resource URLs cannot use support_level "inference".
+
+If a URL cannot be copied exactly from evidence as a complete
+HTTPS URL, use null.
+
+Keep the response compact: prefer fewer, stronger items and one short
+evidence quote per item.  Finish valid JSON before adding another item.
+Never close an array until every object in that array is complete.
+
+============================================================
+FINAL REQUIREMENT
+============================================================
+
+Return JSON only.
+
+No markdown.
+
+No commentary.
+
+No explanation outside the JSON object.

@@ -1,0 +1,43 @@
+{
+  "audio_file": "3965119995801234097.wav",
+  "model": "small",
+  "language": "en",
+  "duration": 7.9398125,
+  "segments": [
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 0.0,
+      "end": 8.0,
+      "text": " Thank you so much for watching, please subscribe and hit that like button if you enjoyed the video.",
+      "tokens": [
+        50364,
+        1044,
+        291,
+        370,
+        709,
+        337,
+        1976,
+        11,
+        1767,
+        3022,
+        293,
+        2045,
+        300,
+        411,
+        2960,
+        498,
+        291,
+        4626,
+        264,
+        960,
+        13,
+        50764
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.9998361027759054,
+      "compression_ratio": 1.125,
+      "no_speech_prob": 0.8534199595451355
+    }
+  ]
+}

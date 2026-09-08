@@ -1,0 +1,73 @@
+# Secrets
+.env
+.env.*
+!.env.example
+session.json
+*.pem
+*.key
+*.secret
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+.npm/
+.nyc_output/
+
+# IDE
+.cursor/
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+pipeline_run.txt
+pipeline_output.log
+
+# Local databases
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.backup
+
+# Generated media
+media/
+
+# Runtime/local state
+state/synced.json
+
+# Local configuration
+providers.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary inspection/debug files
+check_db.py
+check_session.py
+inspect_collection.py
+inspect_data.py
+inspect_media.py
+inspect_schema.py
+
+# Old backup source
+backend/app/resource_verifier.py.backup-before-evidence-match
+
+# Failed AI outputs
+vault/ai_prompts/failed/
+vault/ai_prompts/*_failed_output.txt
+
+# GitHub discovery cache
+data/github_cache/

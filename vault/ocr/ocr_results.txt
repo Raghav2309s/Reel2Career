@@ -1,0 +1,554 @@
+=== video_frame ===
+media\frames\3938231075955764704\frame_0001.jpg
+i
+Thousands of Vibe-Coded
+Apps Expose Comorate and
+Personal Data on the Open
+Web
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0002.jpg
+iets eel Won Wisco as
+Ye
+¢- i
+a ;
+__Watch Till the End to understand the hacks
+rh
+. \
+' .
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0003.jpg
+6. Git history warning. i any secret was previously hardcoded, that old value is.
+
+sill n git history. Add a warning in README: rotate any previously hardcoded
+
+‘socrots immediatly.
+
+Show me a summary of every secret you found, where it was, and what you
+
+‘moved itt.
+
+PROMPT 2
+
+Personal Data Flow Audit
+
+Based on: Bearer — github.com/bearer/bearer
+
+‘Tracks how your users’ personal data (emails, phones, passwords) moves
+
+through the code and makes sure it doesn't end up in logs, third-party
+
+services, or places it shouldn't be,
+
+PASTE THIS INTO EMERGENT:
+
+Do a fll audit of how user personal data moves through this app. | need to kw
+
+‘exactly where sensitive data enters, where it travels, and where it ends up.
+
+1. Map all data collection points. Find every place the app collects user data —
+5
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0004.jpg
+ea
+ie o-- ian
+», SSS = : 4
+* ANS = ‘
+=» es
+"es ;
+cm
+vo
+! alll
+(a
+-
+(ae,
+— \e
+d ‘
+Thi
+> i |
+P ; \¢
+us
+nO ?
+' pre
+me. | ie 7
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0005.jpg
+=
+Watch Till the End to understand the hacks}
+@)
+d
+ais?
+¢
+. me
+= ,-
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0006.jpg
+Watch Till the End to understand the hacks
+, 4
+4
+!
+‘ Py
+¢
+F «
+~y a ~%
+‘ i ow
+—
+—
+iY
+\ff th
+ry. \ ee
+a «is
+~» ) ia.
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0007.jpg
+a A\ apixey Exposeo
+- pracee inion MLA This key is publicly accessible.
+Process.env.DATABASEURL, __ —
+rT ODDNN7EXKAMPLE ad
+é
+4
+»
+oy
+le
+e i,
+a
+\y
+*
+/ 4
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0008.jpg
+wt | ~~
+@ r/googlecloud 10mo ago wee
+Sandrrikk :
+| Student hit with a $55,444.78 Google |
+Cloud bill after Gemini API key leaked on |
+GitHub 4
+_ e
+] e
+j > a
+j— . <
+7 _ |
+">t la
+<s
+wih
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0009.jpg
+steag toa anya te sou cote — nt conta He, nota ty
+2.Chack these special: Supabave keys (anon ey AND soe rl ay) ~
+‘ho anon kay should ONLY be wed saree or wth Rw Leva Soeur
+‘enabled. The sere oa Key must NEVER agpoarn consi code. Stipe keys
+(pubtonable AND secret) —eny he pubshable kay goos canta. Secret oy
+lay srr ony. Dalabace connection stings (MongoO8 UR, PoslgrsSOL
+URL) ~ eronmont varia ony, never hardcoded. OAuth clot secret, WT
+slong secrets ~ servos ay. Any teary AP Koy (Open, Sond
+“wo, Frobas, AWS) ~ a must be non vrs
+
+23. Check rontond exposure. Rosca expves anyon var pio wih
+[NEXT_PUBLIC_or REACT.APP_totho bowser — mako sue 0 senate oy
+‘ae has protes, Ory pcs vauo (ikea Supaase ao ey WITH RLS
+4. tignore andanwaxampl. Mae sure iin opr. Croatoa
+‘nora ta ts roqad variables with plcaokn values BA 0
+‘5. Check ogs and responses. Check console, oot hander AP be
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0010.jpg
+: = f USER DATA LEAKED
+ye ‘ {rome arseis 20
+MyApp “e 2 = ja
+cant 2A & ae een
+Bowe a ‘
+a peas a 4
+=
+—
+6)
+o :
+lal a |
+we
+= | .
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0011.jpg
+{ = == f USER DATA LEAKED
+ak Va Ce
+MyApp oe hel A Bee
+baton S
+Bee %
+ste =. i
+— *.
+=
+vo
+¢* | a
+\ens
+*
+{
+¥ YY?
+wa ,
+S he
+&
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0012.jpg
+¢
+4
+; y e
+7 c.
+nd _ - “_ al |
+en "
+a>
+ey
+—- “ .
+-
+— }
+4 q
+Ms h vat “1
+p3 > 1 —*
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0013.jpg
+bs
+A Application Error x
+‘An unexpected error occurred. Please try again later.
+File not found: /app/settings.dat
+Could not connect to DB server
+Database connection details:
+host: 192.168.1.10
+\ port: 3306
+useriadmin; passwordmysekret
+Please check the configuration and try again. | ‘
+‘
+Close
+~ «
+a) 7
+Pas .
+|
+¢e “ae
+j y|
+= | \
+4 4
+, Al
+~
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0014.jpg
+ee \\
+e
+YB = +4
+| 14
+ew ge |
+yn
+‘*
+\|
+\ ‘ |
+a
+vane’ :
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0015.jpg
+[NO TEXT DETECTED]
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0016.jpg
+eo
+si}
+P e
+\ j
+' et
+|
+pi "y
+> \ RNS
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0017.jpg
+ARS
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0018.jpg
+7
+© YouTube - NullSecx -1.8K+ views: 10m... ?
+How Hackers Can Change ‘|
+Product Prices Parameter...
+’ ~ ; Er
+{ a . * ;
+G ox : |
+ail Ai
+aad
+<a)
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0019.jpg
+PROMPTS
+Attacker's Perspective Review
+»
+|
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0020.jpg
+.
+ey
+) y 4
+ae | /
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0021.jpg
+000 Bumrem x yee
+te User Profile Sf User Profile
+: ; & -
+ve Som Doe Jane Sith
+= 2 8 :
+- on New York USA i Los Angeles, USA ¢
+on 15,208 Feb 20,2003
+Account Details ‘Account Details
+Se
+\ »
+I've
+, =e
+>
+R .
+a. Ma
+a
+>
+ga y
+- [ ‘3
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0022.jpg
+000 Bumrm x eee (Bummm x +
+€ 3c speraniecom( ju €3 © & eeperanpiecm userii24
+S5 User Profile SE User Profile
+S : @ .
+me dome Jone Sth
+9 QS B
+jn osoecplecom 2 foe sningexanle com
+~ + New York, USA a Los Angeles, USA e
+san 18,2028 fev 0, 2000
+Account Details Account Detas
+en a ry
+ar ¥
+<—
+'
+’
+¢ %
+\ *
+‘mg }
+'
+.
+4
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0023.jpg
+'5 Content icon. Typing avaSerpin evr x Fld urea, bos,
+7. Business opie manipulation. pyran est ~ can pay nostve
+coast, abv andage ws scone
+»
+|
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0024.jpg
+™ 2358 ae a
+DB tecaPuise ave
+© CIVE GLOBAL STWAL WAP
+
+a The World, Live.
+
+Where AI & tech-policy stories are breaking. Tap a city.
+iv ameceecne sat (2 ea
+HoT SS cee
+——s . . .
+— 2
+: ag
+ree 2 nm”
+*
+s Fe ‘ex
+be sen
+wy
+» Se }
+2 C) w [o)
+nn a a
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0025.jpg
+000 Yo emecm x (0) tmerent +
+© > © 5 wepamacentsynone
+me
+bd _
+Start with one prompt. You can change every’
+@ Wed App 0 Motte App.
+| Ge wintord PaBMORRCARAGP KdaRlNAP'S. One-line description, target audenx
+cea whan pe perenne
+a
+’ REA we ero ett; sero he
+> RagatnaTenla ERCP ey veer segments
++
+CQ) meettmmetnnaiigtetmnaitomninn QE
+-9ec00Re#e09- a0:
+: :
+ay.” 1 Ee . 3 7 = :
+My Q w E R T x iN) \
+| = s ® F s " >
+EE z x c v B Nn {
+ee ie = =e a ee
+es contro! |) option commend
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0026.jpg
+™ 2:35 ae ee
+ tacaPuise te
+© CAVE -GLOuAL STEAL HAF
+> The World, Live.
+Where AI & tech-policy stories are breaking, Tap a city.
+ 20.0000° - & 0.0000° (5 59 srouats
+ud + SEATTLE = ary
+ORORTO %
+} voue-7c < e
+<= z.
++ REVKJAVIK 3
++ © noscow
+ge ‘$5.756° N + 37.617° E
+* SE pussia unveils Sber's next-gen GigaChat
+TASS + COMPANY HENS
+Cd
++ TEL + ReMe
+e =} 2 Cy bad CO |
+ee on ||
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0027.jpg
+se mayankshah_ai =
+Mayank Shah
+84 79.2K 60
+Links fa
+¢
+¢
+p p © Ty Out Emergent ii}
+'/ — app.emergent.sh/?utm_shift=redire... q
+Join The Al Lab for exclusive Al re...
+ay t.me/theailab7
+Ba All Links
+0 linktr.ee/heymayankshah
+a 5 Security Checks for Apps
+¢ drive.google.com/file/d/1wOl7rqoSx...
+re |
+)
+
+=== video_frame ===
+media\frames\3938231075955764704\frame_0028.jpg
+[NO TEXT DETECTED]
+
+=== carousel_slide ===
+media\frames\3957068783193726412_01.jpg
+No internship this summer?™ 4.
+ * Use these 4
+yi) @ to *actually* land you a role! Sree s
+
+z ) Bal ie BE 8S 8 oes i aidan Hoe
+See elo E- BEC aCe Her att ab
+PERCE CEE He ee pe et ett eee
+updated daily! *Al) for free!*
+ad =
+
+=== carousel_slide ===
+media\frames\3957068783193726412_02.jpg
+1. Coding-Interview-University
+— a (go from 0 -> 100)
+README (CC-BY-84-40 lcense ae
+Coding interviewUniversity  -—=~—SCSCS 1
+ety ta iw tert i ey wp iy sewn ena ——
+iran peace smmiaasnergcems” |
+{studied about 8-12 hours a day, for several months. This is my story: Win | ste flim fr 8 months for | m5
+Se eee ree |
+= | eenes
+ane he
+> Translations in progress: |
+Wheto? |
+8
+a full self-taught CS curriculum built by someone
+who studied for months to land at Amazon, covers
+every DSA topic and concept for tech interviews.
+
+=== carousel_slide ===
+media\frames\3957068783193726412_03.jpg
+2. Summer 2027 Internships
+ai, . (by Pitt CSC & Simplify)
+————————— ——_—S_—_— Ee ——
+Summer 2027 TechinomsipstyPnicscasmety  S58e
+‘Soot hse ee i nn Wr paascaeae dl
+fees
+Hi Quantitative Finance (68)
+‘\ Hardware Engineering (0) Q
+ne
+Tg simetty
+EEE
+ord checking every daytona I
+peony none nosey sues wectemarensas =
+the most popular SWE internship tracker for
+Summer 2027, one-click applications straight from
+the repo and updated daily as new roles drop.
+
+=== carousel_slide ===
+media\frames\3957068783193726412_04.jpg
+3. 2027 Al College Jobs
+- alia Al/ML focused roles
+ee. ay ea
+a ere updated daly, and we prorize jobs posted within the last 120 days. | =
+ons eee _—
+“Py eae
+| = —— = [-
+maintained list of Al and ML internships and |
+full-time roles updating in real time, the best
+place to find Al opportunities as they drop.
+
+=== carousel_slide ===
+media\frames\3957068783193726412_05.jpg
+4. System Design Primer
+
+prep for interviews!
+zn |
+|
+| | |
+= =a _
+
+the most complete system design resource
+on the internet, covers databases, caching and
+scaling, essential reading before any
+system design interview.
+
+=== carousel_slide ===
+media\frames\3957068783193726412_06.jpg
+5. Summer 2027 Internships
+— sala (by Vansh & Ouckah)
+SSS Ee |
+SSS | cen:
+A Please note that this repository is exclusively for intemshipajco-ops in the United States, Canada, or Remote aeea 8 Ox
+ra | idl
+|
+a nn
+Legend
+proce
+community-driven repo tracking every SWE
+internship opening for Summer 2027. as theygo.
+live, check this daily so you never apply last.
+
+=== carousel_slide ===
+media\frames\3957068783193726412_07.jpg
+ioe oe ro -— | = == a.
+A , = volkanjs @ O a , ;
+. \ y seine tok towers 161 following esas “ f _ 7
+|
+2 Digital creator a a 2" ky - a as
+t Ss @ Building @trypolishnow fae is ts ‘4 ' i
+— wa Helping you level up in tec! ¢ yer Ae “ye? = iG.
+y By ween neter \ ys ‘on yh Ay a
+: @ newsletter.volkanjs.com and = ae “4 :
+__ Comment “Re a my DA St
+“for the wees >
+. 2 —" = iia x
+WHT
+os 4 HH }
+Ma an |

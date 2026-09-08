@@ -1,0 +1,24 @@
+{
+  "audio_file": "3972995674199144830.wav",
+  "model": "small",
+  "language": "en",
+  "duration": 10.4954375,
+  "segments": [
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 0.0,
+      "end": 10.44,
+      "text": " Music",
+      "tokens": [
+        50364,
+        7609,
+        50886
+      ],
+      "temperature": 1.0,
+      "avg_logprob": -1.0939521789550781,
+      "compression_ratio": 0.38461538461538464,
+      "no_speech_prob": 0.47540661692619324
+    }
+  ]
+}

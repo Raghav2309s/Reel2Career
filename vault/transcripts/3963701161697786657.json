@@ -1,0 +1,45 @@
+{
+  "audio_file": "3963701161697786657.wav",
+  "model": "small",
+  "language": "en",
+  "duration": 5.61925,
+  "segments": [
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 0.0,
+      "end": 5.6000000000000005,
+      "text": " Here's, and he is mine, in the end, it's him and I, him and I.",
+      "tokens": [
+        50364,
+        1692,
+        311,
+        11,
+        293,
+        415,
+        307,
+        3892,
+        11,
+        294,
+        264,
+        917,
+        11,
+        309,
+        311,
+        796,
+        293,
+        286,
+        11,
+        796,
+        293,
+        286,
+        13,
+        50644
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.4057500171661377,
+      "compression_ratio": 1.1071428571428572,
+      "no_speech_prob": 0.4238228499889374
+    }
+  ]
+}
